@@ -29,17 +29,20 @@ class Login {
             // Callback : fonction appelée si l'évènement défini survient
             function(event) {
                 // Vérifier le contenu des deux champs
-                //const login = $('[name="loginField"]');
-                //const password = $('[name="passwordField"]');
+                const login = $('[name="loginField"]');
+                const password = $('[name="passwordField"]');
 
                 // Est-ce que les 2 champs sont remplis
-                if(
+                if (
+                    login.val() !== '' &&
                     password.val() !== '' &&
                     login.val().length >= 5 ) {
                     // On peut activer le bouton
                     $('#btnLogin').removeAttr('disabled');
                 } else {
                     $('#btnLogin').attr('disabled', 'disabled');
+                   
+
                 }
             }
         );
@@ -76,11 +79,17 @@ class Login {
                     console.log('Oki, tu peux y aller');
                 } else {
                     console.log('ko, t\'as pas le droit');
-                    
-                    $('[name="loginField"]').val('');
-                    $('[name="passwordField"]').val('');
+                    login.val('');
+                    password.val('');
                     $('#btnLogin').attr('disabled', 'disabled');
 
+                    const toast = new Toast(
+                        {
+                            'message' : 'Ce login ou ce mot de passe ne correspon à aucun utilisateur',
+                            'duration' : 2
+                        }
+                    );
+                    toast.toastIt();
                 }
             }
         );
