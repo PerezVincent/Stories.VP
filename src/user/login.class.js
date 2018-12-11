@@ -65,8 +65,8 @@ class Login {
                 const user = new User();
 
                 // Définit le login et le password de l'utilisateur
-                user.setUserName(this.login.val());
-                user.setPassword(this.password.val());
+                user.setUserName(login.val());
+                user.setPassword(password.val());
 
                 
                 //  AUTRE METHODE : on peut utiliser directement les $() dans le user.set
