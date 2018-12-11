@@ -12,7 +12,7 @@
          this.backgroundClass = 'danger';
         
          } else {
-             this.backgroundClass = 'danger';
+             this.backgroundClass = params.background;
          }
          if (!params.hasOwnProperty('duration')) {
          // Durée d'affichage du toast (en secondes)
@@ -44,7 +44,7 @@
         toaster
             .addClass('toast')
             .addClass(this.backgroundClass)
-            .html(this.message);
+            .html('<p>' + this.message + '<p>');
 
         // Ajoute le toaster au document lui-même
         toaster.apprendTo($('body'));

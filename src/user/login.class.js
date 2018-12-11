@@ -81,12 +81,15 @@ class Login {
                     console.log('ko, t\'as pas le droit');
                     login.val('');
                     password.val('');
+
                     $('#btnLogin').attr('disabled', 'disabled');
 
+                    // On peut instancier un toast. On lui assigne des paramètres un peu particulier.
                     const toast = new Toast(
                         {
                             'message' : 'Ce login ou ce mot de passe ne correspon à aucun utilisateur',
-                            'duration' : 2
+                            'duration' : 2,
+                            'background' : 'background-color'
                         }
                     );
                     toast.toastIt();
